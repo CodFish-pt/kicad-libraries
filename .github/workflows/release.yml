@@ -21,7 +21,7 @@ jobs:
         run: echo "Tag Name $GIT_TAG_NAME"
 
       - name: Yet another step # Environment variable usage example
-        run: python3 package.py $GIT_TAG_NAME
+        run: python3 ./package.py $GIT_TAG_NAME
 
       - name: Upload files to artifacts
         uses: actions/upload-artifact@v3
