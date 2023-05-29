@@ -22,10 +22,10 @@ jobs:
 
       - name: Yet another step # Environment variable usage example
         run: |
-          python3 ./package.py ${{ env.GITHUB_REF }}
+          python3 ../package.py ${{ env.GITHUB_REF }}
 
       - name: Upload files to artifacts
         uses: actions/upload-artifact@v3
         with:
           name: espressif-kicad-addon
-          path: ./build/espressif-kicad-addon.zip
+          path: build/espressif-kicad-addon.zip
