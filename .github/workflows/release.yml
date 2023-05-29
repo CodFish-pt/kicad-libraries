@@ -19,12 +19,14 @@ jobs:
         id: tagName
 
       - name: Get the release tag
-        run: echo "Tag Name $GIT_TAG_NAME"
+        with:
+          tagname: ${{ steps.tagName.outputs.tag }}
+        run: "echo tagName: ${{ steps.tagName.outputs.tag }}"
 
       - name: Run the PCM Python script
         run: |
           ls
-          python3 package.py ${{ env.GITHUB_REF }}
+          python3 package.py $GIT_TAG_NAME
 
       - name: Upload files to artifacts
         uses: actions/upload-artifact@v3
