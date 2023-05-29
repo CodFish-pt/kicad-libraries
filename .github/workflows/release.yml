@@ -24,16 +24,11 @@ jobs:
           echo "Release tag $GIT_TAG_NAME"
           python3 package.py $GIT_TAG_NAME
 
-      - name: Get Release Upload URL
-        id: get_upload_url
-        run: |
-          echo "::set-output name=upload_url::${{ github.event.release.upload_url }}"
-
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
         with:
-          asset_path: build
+          asset_path: ./build/espressif-kicad-addon.zip
           asset_name: espressif-kicad-addon.zip
-          asset_content_type: application/octet-stream
-          upload_url: ${{ steps.get_upload_url.outputs.upload_url }}
+          asset_content_type: application/zip
+          upload_url: ${{ github.event.release.upload_url }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
