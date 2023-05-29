@@ -24,9 +24,11 @@ jobs:
           echo "Release tag $GIT_TAG_NAME"
           python3 package.py $GIT_TAG_NAME
 
+      - name: Copy zip file to artifact directory
+        run: cp build/espressif-kicad-addon.zip ${{ github.workspace }}/espressif-kicad-addon.zip
+
       - name: Upload files to artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: espressif-kicad-addon
-          path: build/espressif-kicad-addon.zip
-          retain-artifact: true
+          path: ${{ github.workspace }}/espressif-kicad-addon.zip
