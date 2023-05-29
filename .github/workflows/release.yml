@@ -19,10 +19,9 @@ jobs:
         uses: olegtarasov/get-tag@v2.1.2
         id: tagName
 
-      - name: Get the release tag
+      - name: Create the PCM package
         run: |
-          echo "tag to use $GIT_TAG_NAME"
-          ls
+          echo "Release tag $GIT_TAG_NAME"
           python3 package.py $GIT_TAG_NAME
 
       - name: Upload files to artifacts
@@ -30,3 +29,4 @@ jobs:
         with:
           name: espressif-kicad-addon
           path: build/espressif-kicad-addon.zip
+          retain-artifact: true
