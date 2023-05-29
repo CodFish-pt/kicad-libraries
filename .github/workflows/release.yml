@@ -18,11 +18,12 @@ jobs:
         id: tagName
 
       - name: Some other step # Output usage example
-        run: echo "Tag Name $GIT_TAG_NAME"
+        run: |
+          echo "Tag Name $GIT_TAG_NAME"
 
       - name: Yet another step # Environment variable usage example
         run: |
-          python3 ../package.py ${{ env.GITHUB_REF }}
+          python3 ./pcm/package.py ${{ env.GITHUB_REF }}
 
       - name: Upload files to artifacts
         uses: actions/upload-artifact@v3
