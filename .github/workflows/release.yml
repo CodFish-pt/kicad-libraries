@@ -1,16 +1,9 @@
-
 name: Library Release PCM
-
-# on:
-#   release:
-#     branches: [main]
-#     types:
-#       - published
-#   workflow_dispatch:
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -18,19 +11,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
       - name: Get Tag Name
         uses: olegtarasov/get-tag@v2.1.2
         id: tagName
 
       - name: Some other step # Output usage example
-        run: echo "Tag Name $GIT_TAG_NAME"
+        run: echo "Tag Name ${{ steps.tagName.outputs.tag }}"
 
       - name: Yet another step # Environment variable usage example
         run: |
-          python3 package.py
+          python3 kicad-libraries/package.py ${{ env.GITHUB_REF }}
 
       - name: Upload files to artifacts
         uses: actions/upload-artifact@v3
         with:
           name: espressif-kicad-addon
-          path: build/espressif-kicad-addon.zip
+          path: kicad-libraries/build/espressif-kicad-addon.zip
