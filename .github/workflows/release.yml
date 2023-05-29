@@ -1,9 +1,10 @@
 name: Library Release PCM
 
 on:
-  push:
-    branches:
-      - main
+  release:
+    branches: [main]
+    types:
+      - published
   workflow_dispatch:
 
 jobs:
