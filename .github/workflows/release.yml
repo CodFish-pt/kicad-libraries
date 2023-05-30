@@ -30,9 +30,10 @@ jobs:
           python3 package.py 1.0.0
           ls
           cd build
+          mkdir espressif-kicad-addon
           ls
           unzip espressif-kicad-addon.zip -d espressif-kicad-addon
-          ll
+          ls
           cd ..
           ls
 
