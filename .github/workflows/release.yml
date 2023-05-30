@@ -1,10 +1,15 @@
 name: Library Release PCM
 
+# on:
+#   release:
+#     branches: [main]
+#     types:
+#       - published
+#   workflow_dispatch:
+
 on:
-  release:
+  push:
     branches: [main]
-    types:
-      - published
   workflow_dispatch:
 
 jobs:
@@ -23,12 +28,17 @@ jobs:
         run: |
           echo "Release tag $GIT_TAG_NAME"
           python3 package.py $GIT_TAG_NAME
+          ll
+          cd build
+          ll
+          unzip espressif-kicad-addon.zip -d espressif-kicad-addon
+          rm espressif-kicad-addon.zip
+          cd ..
+          ll
 
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
+      - name: Upload files to artifacts
+        uses: actions/upload-artifact@v3
         with:
-          asset_path: ./build/espressif-kicad-addon.zip
-          asset_name: espressif-kicad-addon.zip
-          asset_content_type: application/zip
-          upload_url: ${{ github.event.release.upload_url }}
-          github_token: ${{ secrets.Asset_Upload }}
+          name: espressif-kicad-addon
+          path: build/espressif-kicad-addon
+
