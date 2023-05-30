@@ -32,7 +32,7 @@ jobs:
           cd build
           ls
           unzip espressif-kicad-addon.zip -d espressif-kicad-addon
-          rm espressif-kicad-addon.zip
+          ll
           cd ..
           ls
 
