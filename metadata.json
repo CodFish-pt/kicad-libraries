@@ -23,6 +23,24 @@
     },
     "versions": [
         {
+            "version": "1.0.100",
+            "status": "stable",
+            "kicad_version": "6.0.0",
+            "download_sha256": "5b09af742e7f61502d1b20ec0ad76a7662be1370b71900276997557e135a7fcd",
+            "download_size": 36983751,
+            "download_url": "https://github.com/espressif/kicad-libraries/releases/download/1.0.100/espressif-kicad-addon.zip",
+            "install_size": 167907673
+        },
+        {
+            "version": "1.0.99",
+            "status": "stable",
+            "kicad_version": "6.0.0",
+            "download_sha256": "4cbcd56c2c273659f7eae7e62e25b7c78204d8de0fda535333de3677a403b5e3",
+            "download_size": 36983751,
+            "download_url": "https://github.com/espressif/kicad-libraries/releases/download/1.0.99/espressif-kicad-addon.zip",
+            "install_size": 167907672
+        },
+        {
             "version": "2.0.2",
             "status": "stable",
             "kicad_version": "6.0.0",

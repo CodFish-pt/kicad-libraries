@@ -133,14 +133,19 @@ def check_version_already_exist(version, existing_versions):
     return False
 
 
+def get_version_from_user():
+    version = input("Enter the new addon version (required format: major[.minor[.patch]]): ")
+    return version.strip()
+
+
 def package():
     print('This script helps to generate a new kicad addon release. \n')
     print('It generates the release zip file and the metadata.json \n\n')
 
     if len(sys.argv) < 2:
-        raise Exception("Version argument is missing. Please provide the new addon version as a command line argument.")
-    
-    version = sys.argv[1]
+        version = get_version_from_user()
+    else:
+        version = sys.argv[1]
 
     if not re.match('^\d{1,4}(\.\d{1,4}(\.\d{1,6})?)?$', version):
         raise Exception(
