@@ -36,7 +36,7 @@ jobs:
       - name: Include File on Main Branch
         run: |
           mkdir -p ./build/main
-          cp ./metadata.template.json ./build/main/metadata.template.json
+          cp ./metadata.json ./build/main/metadata.json
 
       - name: Commit and Push Changes to Main Branch
         uses: stefanzweifel/git-auto-commit-action@v4
