@@ -41,5 +41,5 @@ jobs:
       - name: Commit and Push Changes to Main Branch
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: 'Add auto generated metadata.template.json file to the main branch'
+          commit_message: 'Add auto generated metadata.json file to the main branch'
           branch: main
