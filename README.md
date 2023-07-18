@@ -9,6 +9,8 @@ This repository contains the Symbols, Footprint, and 3D Models for the Espressif
 [![GitHub forks](https://img.shields.io/github/forks/espressif/kicad-libraries)](https://github.com/espressif/kicad-libraries/network)
 [![GitHub issues](https://img.shields.io/github/issues/espressif/kicad-libraries)](https://github.com/espressif/kicad-libraries/issues)
 
+[![Release Version](https://img.shields.io/github/release/espressif/arduino-esp32.svg?style=plastic)](https://github.com/espressif/kicad-libraries/releases/latest)
+
 > Notice: The libraries are provided in the hope that they will be useful but without a warranty of any kind.
 
 **The libraries in this repository are intended to be used with KiCad version 7.**
